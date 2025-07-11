@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import React from 'react'
 import { BiBug } from "react-icons/bi";
+import classnames from 'classnames';
 
 const Navbar = () => {
 
@@ -22,7 +23,11 @@ const Navbar = () => {
             {links.map(link=>
             <Link 
               key={link.href}
-              className={`${link.href===currentPath?'text-zinc-800':'text-zinc-500'} hover:text-zinc-800 transition-colors`}
+              className= {classnames({
+                'text-zinc-900':link.href===currentPath,
+                'text-zinc-500':link.href!=currentPath,
+                'hover:text-zinc-900 transition-colors':true
+              })}
               href={link.href}>
               {link.label}</Link>)}
         </ul>   

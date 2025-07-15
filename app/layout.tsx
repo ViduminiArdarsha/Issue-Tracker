@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={` ${motserrat.variable}`}>
+      <body className={`${motserrat.variable}`}>
           <Theme>
             <Navbar/>
               <main className="p-5">

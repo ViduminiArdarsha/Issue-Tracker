@@ -22,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={motserrat.variable}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={` ${motserrat.variable}`}>
           <Theme>
             <Navbar/>
               <main className="p-5">

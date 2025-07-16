@@ -20,6 +20,17 @@ const NewIssue = () => {
    });
    const [error,setError] = useState('');
    const [isSubmitting,setSubmitting] = useState(false);
+
+   const onSubmit = handleSubmit(async (data)=>{
+        try {
+          setSubmitting(true);
+          await axios.post('/api/issues',data);
+          router.push('/issues');
+        } catch (error) {
+          setSubmitting(false);
+          setError('An Error Occured')
+        }
+        });
  
    return (
 
@@ -36,16 +47,7 @@ const NewIssue = () => {
 
       )}
        <form className='space-y-3' 
-        onSubmit={handleSubmit(async (data)=>{
-        try {
-          setSubmitting(true);
-          await axios.post('/api/issues',data);
-          router.push('/issues');
-        } catch (error) {
-          setSubmitting(false);
-          setError('An Error Occured')
-        }
-        })}>
+        onSubmit={onSubmit}>
 
        <TextField.Root placeholder="Title" {...register('title')}>
        </TextField.Root>

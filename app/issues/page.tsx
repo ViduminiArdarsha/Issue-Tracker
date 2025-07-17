@@ -14,21 +14,24 @@ const IssuesPage = async () => {
         </Button>
       </div>
 
-      <Table.Root>
+      <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell>Created At</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="hidden md:table-cell">Status</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="hidden md:table-cell">Created At</Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
           {issues.map((issue) => (
             <Table.Row key={issue.id}>
-              <Table.Cell>{issue.title}</Table.Cell>
-              <Table.Cell>{issue.status}</Table.Cell>
-              <Table.Cell>{issue.createdAt.toDateString()}</Table.Cell>
+              <Table.Cell>
+                {issue.title}
+                <div className="block md:hidden">{issue.status}</div>
+              </Table.Cell>
+              <Table.Cell className="hidden md:table-cell">{issue.status}</Table.Cell>
+              <Table.Cell className="hidden md:table-cell">{issue.createdAt.toDateString()}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

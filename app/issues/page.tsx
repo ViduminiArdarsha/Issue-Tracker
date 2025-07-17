@@ -26,7 +26,6 @@ const IssuesPage = async () => {
         <Table.Body>
           {issues.map((issue) => (
             <Table.Row key={issue.id}>
-              <Table.Cell>{issue.id}</Table.Cell>
               <Table.Cell>{issue.title}</Table.Cell>
               <Table.Cell>{issue.status}</Table.Cell>
               <Table.Cell>{issue.createdAt.toDateString()}</Table.Cell>

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const IssueDetailsPage = async ({ params }: Props) => {
-  await delay(1000);
+  
 
   const id = (await params).id;
 
@@ -22,6 +22,8 @@ const IssueDetailsPage = async ({ params }: Props) => {
   });
 
   if (!issue) notFound();
+  await delay(2000);
+
   return (
     <div>
       <Heading>{issue.title}</Heading>

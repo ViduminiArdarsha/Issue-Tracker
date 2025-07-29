@@ -3,7 +3,7 @@ import './theme-config.css';
 import "./globals.css";
 import { Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import Navbar from "./Navbar";
 
 const motserrat = Montserrat({

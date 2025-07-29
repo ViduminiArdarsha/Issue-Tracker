@@ -3,7 +3,7 @@ import ErrorMessage from "@/app/components/ErrorMessage";
 import validationSchema from "@/app/validationSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Issue } from "@prisma/client";
-import { Button, Callout, Spinner, TextField } from "@radix-ui/themes";
+import { Button, Spinner, TextField } from "@radix-ui/themes";
 import axios from "axios";
 import "easymde/dist/easymde.min.css";
 import dynamic from "next/dynamic";
@@ -28,7 +28,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
   } = useForm<IssueFormData>({
     resolver: zodResolver(validationSchema),
   });
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const [isSubmitting, setSubmitting] = useState(false);
 
   const onSubmit = handleSubmit(async (data) => {
@@ -39,20 +39,20 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
       else
         await axios.post("/api/issues", data);
       router.push("/issues");
-    } catch (error) {
+    } catch(error) {
       setSubmitting(false);
-      setError("An Error Occured");
+      // setError("An Error Occured");
     }
   });
 
   return (
     <div className="max-w-xl">
-      {error && (
+      {/* {error && (
         <Callout.Root color="red" className="mb-3">
           <Callout.Icon></Callout.Icon>
           <Callout.Text>An Error Occured.</Callout.Text>
         </Callout.Root>
-      )}
+      )} */}
       <form className="space-y-3" onSubmit={onSubmit}>
         <TextField.Root
           defaultValue={issue?.title}

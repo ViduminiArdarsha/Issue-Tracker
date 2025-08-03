@@ -1,14 +1,14 @@
 import "@radix-ui/themes/styles.css";
-import './theme-config.css';
+import "./theme-config.css";
 import "./globals.css";
-import { Theme } from "@radix-ui/themes";
+import { Container, Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Navbar from "./Navbar";
 
 const motserrat = Montserrat({
-  subsets:['latin'],
-  variable:"--font-motserrat"
+  subsets: ["latin"],
+  variable: "--font-motserrat",
 });
 
 export const metadata: Metadata = {
@@ -24,12 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${motserrat.variable}`}>
-          <Theme>
-            <Navbar/>
-              <main className="p-5">
-                   {children} 
-              </main>
-          </Theme>   
+        <Theme>
+          <Navbar />
+          <main className="p-5">
+            <Container>{children}</Container>
+          </main>
+        </Theme>
       </body>
     </html>
   );

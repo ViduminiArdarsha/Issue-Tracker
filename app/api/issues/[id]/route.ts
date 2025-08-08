@@ -36,6 +36,8 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+
+  
   const id = (await params).id;
 
   const issue = await prisma.issue.findUnique({
@@ -50,3 +52,5 @@ export async function DELETE(
   });
   return NextResponse.json({});
 }
+
+
